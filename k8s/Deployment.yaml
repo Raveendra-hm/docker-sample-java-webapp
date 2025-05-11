@@ -1,20 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: java-dep
-  namespace: dev
+  name: calci-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: java
+      app: calci
   template:
     metadata:
       labels:
-        app: java
+        app: calci
     spec:
       containers:
-        - name: java-container
-          image: {{IMAGE}}  # Replaced in pipeline
-          ports:
-            - containerPort: 8080
+      - name: calci
+        image: IMAGE_PLACEHOLDER
+        ports:
+        - containerPort: 8080
