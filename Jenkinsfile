@@ -74,7 +74,7 @@ pipeline {
                         echo "Deploying to Kubernetes namespace: ${NAMESPACE}"
 
                         # Replace image in deployment file
-                        sed -i "s|IMAGE_PLACEHOLDER|${ECR_REPO}:${IMAGE_TAG}|g" k8s/deployment.yaml
+                        sed -i "s|IMAGE_PLACEHOLDER|${ECR_REPO}:${IMAGE_TAG}|g" k8s/Deployment.yaml
 
                         # Apply manifests
                         kubectl apply -n ${NAMESPACE} -f k8s/
